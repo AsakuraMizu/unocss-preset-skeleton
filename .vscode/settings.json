@@ -1,0 +1,14 @@
+{
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "svelte"
+  ],
+  "eslint.validate": ["svelte"],
+  "svelte.enable-ts-plugin": true
+}

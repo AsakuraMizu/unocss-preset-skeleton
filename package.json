@@ -1,0 +1,73 @@
+{
+  "name": "unocss-preset-template",
+  "type": "module",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.7.0",
+  "description": "<description>",
+  "author": "Asakura Mizu",
+  "license": "MIT",
+  "homepage": "https://github.com/AsakuraMizu/unocss-preset-template#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AsakuraMizu/unocss-preset-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AsakuraMizu/unocss-preset-template/issues"
+  },
+  "keywords": [
+    "unocss",
+    "unocss-preset",
+    "unocss-preset-starter",
+    "unocss-preset-template"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "pnpm run -F playground dev",
+    "build": "tsup",
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "lint": "eslint . --fix",
+    "format": "prettier --write ./**/*.{js,cjs,ts,html,svelte,md,json}",
+    "test": "vitest",
+    "test:run": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.0",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "@unocss/eslint-config": "^0.55.7",
+    "bumpp": "^9.2.0",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-svelte": "^2.33.1",
+    "eslint-plugin-vitest": "^0.3.1",
+    "prettier": "^3.0.3",
+    "prettier-plugin-svelte": "^3.0.3",
+    "svelte-eslint-parser": "^0.33.0",
+    "tsup": "^7.2.0",
+    "typescript": "5.2.2",
+    "unbuild": "^2.0.0",
+    "unocss": "^0.55.7",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.4"
+  }
+}
