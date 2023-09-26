@@ -1,25 +1,25 @@
 {
-  "name": "unocss-preset-template",
+  "name": "unocss-preset-skeleton",
   "type": "module",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@8.7.0",
-  "description": "<description>",
+  "description": "Port of Skeleton for UnoCSS",
   "author": "Asakura Mizu",
   "license": "MIT",
-  "homepage": "https://github.com/AsakuraMizu/unocss-preset-template#readme",
+  "homepage": "https://github.com/AsakuraMizu/unocss-preset-skeleton#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AsakuraMizu/unocss-preset-template.git"
+    "url": "git+https://github.com/AsakuraMizu/unocss-preset-skeleton.git"
   },
   "bugs": {
-    "url": "https://github.com/AsakuraMizu/unocss-preset-template/issues"
+    "url": "https://github.com/AsakuraMizu/unocss-preset-skeleton/issues"
   },
   "keywords": [
     "unocss",
     "unocss-preset",
-    "unocss-preset-starter",
-    "unocss-preset-template"
+    "unocss-preset-skeleton",
+    "skeleton",
+    "sveltekit"
   ],
   "sideEffects": false,
   "exports": {
@@ -42,32 +42,43 @@
   ],
   "scripts": {
     "dev": "pnpm run -F playground dev",
-    "build": "tsup",
+    "build": "npm run build:styles && npm run build:lib",
+    "build:lib": "tsup",
+    "build:styles": "tsx src/styles/build.ts",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "lint": "eslint . --fix",
-    "format": "prettier --write ./**/*.{js,cjs,ts,html,svelte,md,json}",
+    "format": "prettier --write ./**/*.{js,cjs,ts,css,html,svelte,md,json}",
     "test": "vitest",
     "test:run": "vitest run"
   },
   "devDependencies": {
-    "@types/node": "^20.6.0",
-    "@typescript-eslint/eslint-plugin": "^6.6.0",
-    "@typescript-eslint/parser": "^6.6.0",
-    "@unocss/eslint-config": "^0.55.7",
+    "@csstools/postcss-cascade-layers": "^4.0.0",
+    "@types/node": "^20.7.0",
+    "@types/postcss-import": "^14.0.1",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "@unocss/eslint-config": "^0.56.4",
+    "@unocss/postcss": "^0.56.4",
     "bumpp": "^9.2.0",
-    "eslint": "^8.49.0",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-svelte": "^2.33.1",
+    "eslint-plugin-svelte": "^2.33.2",
     "eslint-plugin-vitest": "^0.3.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.30",
+    "postcss-import": "^15.1.0",
     "prettier": "^3.0.3",
     "prettier-plugin-svelte": "^3.0.3",
     "svelte-eslint-parser": "^0.33.0",
     "tsup": "^7.2.0",
     "typescript": "5.2.2",
-    "unbuild": "^2.0.0",
-    "unocss": "^0.55.7",
+    "unocss": "^0.56.4",
     "vite": "^4.4.9",
-    "vitest": "^0.34.4"
+    "vitest": "^0.34.5"
+  },
+  "dependencies": {
+    "@unocss/core": "^0.56.4"
   }
 }
